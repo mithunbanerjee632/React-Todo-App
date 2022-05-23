@@ -1,4 +1,6 @@
 import React,{useState} from 'react';
+import {v4 as uuidv4} from 'uuid';
+
 import Todos from './Todos';
 import style from './css/Home.module.css';
 import Newtodo from './Newtodo';
@@ -8,7 +10,9 @@ const Home = () => {
      const [todos,setTodos]=useState([]);
 
      const handleAddTodo=(todo)=>{
-           console.log(todo);
+           setTodos((prevTodos)=>{
+               return [...prevTodos,{id:uuidv4(),todo}]
+           })
      }
   return (
     <div className={style.container}>
