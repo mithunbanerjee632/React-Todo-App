@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import style from './css/Newtodo.module.css';
 
-const Newtodo = () => {
+const Newtodo = (props) => {
 
   const [todo,setTodo]=useState({title:" ", description:" "});
 
@@ -17,7 +17,7 @@ const Newtodo = () => {
 
   const handleSubmit=(event)=>{
     event.preventDefault();
-    console.log(todo);
+    props.onAddTodo(todo);
     setTodo({title:" ",description:" "});
   }
   return (
